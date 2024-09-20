@@ -1,0 +1,50 @@
+services:
+  client:
+    build:
+      context: ./docker/client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src/frontend:/app
+    depends_on:
+      - app
+
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    volumes:
+      - ./src/backend:/var/www/html/
+    depends_on:
+      - db
+
+  web:
+    build:
+      context: ./docker/web
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+    volumes:
+      - ./docker/web/default.conf:/etc/nginx/conf.d/default.conf
+      # nginx の ディレクトリにもバインドマウントしないと not found が出るがこれで良いのか？
+      # nginx を通してappコンテナに通信をかけるのかと思っていた。
+      - ./src/backend:/var/www/html/
+    depends_on:
+      - app
+
+  db:
+    build:
+      context: ./docker/db
+      dockerfile: Dockerfile
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: codia
+    volumes:
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - codia_db:/var/lib/mysql
+
+volumes:
+  codia_db:
