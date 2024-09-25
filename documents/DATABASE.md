@@ -89,4 +89,4 @@ CONSTRAINT pk_question_category PRIMARY KEY (question_id, category_id)
 
 ## ER 図
 
-![codia](https://github.com/user-attachments/assets/7703fe8e-f92c-437e-90e4-b5ed76230ac9)
+![codia](https://github.com/user-attachments/assets/30947eb1-c1e7-438f-9f8c-baed445b4a60)
