@@ -23,7 +23,6 @@
 | COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
 | ----------- | --------- | ------- | ------- | -------- | -------------- |
 | id          | BIGINT    | PRIMARY |         | o        | o              |
-| user_id     | BIGINT    | FOREGIN |         | o        |                |
 | question_id | BIGINT    | FOREGIN |         | o        |                |
 | created_at  | TIMESTAMP |         | NOW     | o        |                |
 | updated_at  | TIMESTAMP |         | NOW     | o        |                |
@@ -42,15 +41,15 @@
 
 ---
 
-### bestanswers
+### best_answers
 
-| COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
-| ----------- | --------- | ------- | ------- | -------- | -------------- |
-| id          | BIGINT    | PRIMARY |         | o        | o              |
-| question_id | BIGINT    | FOREGIN |         | o        |                |
-| comment_id  | BIGINT    | FOREGIN |         | o        |                |
-| created_at  | TIMESTAMP |         | NOW     | o        |                |
-| updated_at  | TIMESTAMP |         | NOW     | o        |                |
+| COLUMN      | TYPE      | KEY             | DEFAULT | NOT NULL | AUTO INCREMENT |
+| ----------- | --------- | --------------- | ------- | -------- | -------------- |
+| id          | BIGINT    | PRIMARY         |         | o        | o              |
+| question_id | BIGINT    | UNIQUE, FOREGIN |         | o        |                |
+| comment_id  | BIGINT    | FOREGIN         |         | o        |                |
+| created_at  | TIMESTAMP |                 | NOW     | o        |                |
+| updated_at  | TIMESTAMP |                 | NOW     | o        |                |
 
 ---
 
