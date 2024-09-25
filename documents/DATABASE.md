@@ -13,7 +13,18 @@
 | title       | VARCHAR   |         |         | o        |                |
 | content     | TEXT      |         |         | o        |                |
 | is_resolved | BOOLEAN   |         | FALSE   | o        |                |
-| views       | BIGINT    |         | 0       | o        |                |
+| created_at  | TIMESTAMP |         | NOW     | o        |                |
+| updated_at  | TIMESTAMP |         | NOW     | o        |                |
+
+---
+
+### views
+
+| COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
+| ----------- | --------- | ------- | ------- | -------- | -------------- |
+| id          | BIGINT    | PRIMARY |         | o        | o              |
+| user_id     | BIGINT    | FOREGIN |         | o        |                |
+| question_id | BIGINT    | FOREGIN |         | o        |                |
 | created_at  | TIMESTAMP |         | NOW     | o        |                |
 | updated_at  | TIMESTAMP |         | NOW     | o        |                |
 
@@ -26,7 +37,18 @@
 | id          | BIGINT    | PRIMARY |         | o        | o              |
 | question_id | BIGINT    | FOREGIN |         | o        |                |
 | content     | TEXT      |         |         | o        |                |
-| is_best     | BOOLEAN   |         | FALSE   | o        |                |
+| created_at  | TIMESTAMP |         | NOW     | o        |                |
+| updated_at  | TIMESTAMP |         | NOW     | o        |                |
+
+---
+
+### bestanswers
+
+| COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
+| ----------- | --------- | ------- | ------- | -------- | -------------- |
+| id          | BIGINT    | PRIMARY |         | o        | o              |
+| question_id | BIGINT    | FOREGIN |         | o        |                |
+| comment_id  | BIGINT    | FOREGIN |         | o        |                |
 | created_at  | TIMESTAMP |         | NOW     | o        |                |
 | updated_at  | TIMESTAMP |         | NOW     | o        |                |
 
@@ -59,13 +81,13 @@
 
 | COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
 | ----------- | --------- | ------- | ------- | -------- | -------------- |
-| id          | BIGINT    | PRIMARY |         | o        | o              |
 | question_id | BIGINT    | FOREGIN |         | o        |                |
 | category_id | BIGINT    | FOREGIN |         | o        |                |
 | created_at  | TIMESTAMP |         | NOW     | o        |                |
 | updated_at  | TIMESTAMP |         | NOW     | o        |                |
 
+CONSTRAINT pk_question_category PRIMARY KEY (question_id, category_id)
+
 ## ER 図
 
 ![codia](https://github.com/user-attachments/assets/7703fe8e-f92c-437e-90e4-b5ed76230ac9)
-
