@@ -1,29 +1,8 @@
 "use client";
 
 import { useFormState } from "react-dom";
-
-async function createQuestion(
-  prevState: {
-    message: string;
-  },
-  formData: FormData,
-) {
-  const response = await fetch('http://localhost:8000/api/questions', {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ title: formData.get('title'), content: formData.get('content') }),
-  });
-
-  console.log(response);
-
-  return { message: "" }
-}
-
-const initialState = {
-  message: ""
-}
+import { createQuestion } from "./actions";
+import { initialState } from "./state";
 
 function Create() {
   const [state, formAction] = useFormState(createQuestion, initialState);
@@ -42,7 +21,7 @@ function Create() {
 
       <button type="submit">作成する</button>
     </form>
-  )
+  );
 }
 
 export default Create;
