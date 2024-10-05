@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\Question;
 
+use App\Http\Resources\Category\CategoryCollection;
+use App\Http\Resources\Category\CategoryResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,6 +23,14 @@ class QuestionResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'content' => $this->content,
+            'is_resolved' => $this->is_resolved,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'categories' => new CategoryCollection($this->categories),
+        ];
     }
 }

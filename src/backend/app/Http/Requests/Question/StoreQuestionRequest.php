@@ -26,6 +26,7 @@ class StoreQuestionRequest extends FormRequest
         return [
             'title' => ['required'],
             'content' => ['required'],
+            'category_id' => ['required'],
         ];
     }
 
@@ -39,6 +40,7 @@ class StoreQuestionRequest extends FormRequest
         return [
             'title.required' => 'タイトルが必須です',
             'content.required' => '内容が必須です',
+            'category_id.required' => 'カテゴリーは必須です',
         ];
     }
 
