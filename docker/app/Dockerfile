@@ -8,4 +8,6 @@ RUN apt-get update \
 # https://getcomposer.org/doc/00-intro.md#docker-image
 COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 
+COPY php.ini /usr/local/etc/php/php.ini
+
 WORKDIR /var/www/html
