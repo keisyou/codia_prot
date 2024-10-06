@@ -1,5 +1,5 @@
 # https://www.php.net/downloads.php
-FROM php:8.3-fpm
+FROM php:8.3-apache
 
 RUN apt-get update \
   && apt-get install -y gnupg gosu curl ca-certificates zip unzip git supervisor libcap2-bin libpng-dev dnsutils librsvg2-bin fswatch ffmpeg vim  \
@@ -8,6 +8,6 @@ RUN apt-get update \
 # https://getcomposer.org/doc/00-intro.md#docker-image
 COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 
-COPY php.ini /usr/local/etc/php/php.ini
+RUN  a2enmod rewrite
 
 WORKDIR /var/www/html
