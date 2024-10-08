@@ -25,6 +25,7 @@ class QuestionController extends Controller
         $question = DB::transaction(function () use ($validated) {
             $question = Question::create($validated);
             $question->categories()->attach($validated['category_id']);
+
             return Question::with('categories')->find($question->id);
         });
 
