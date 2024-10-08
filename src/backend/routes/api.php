@@ -12,5 +12,6 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/questions', [QuestionController::class, 'index']);
 Route::post('/questions', [QuestionController::class, 'store']);
+Route::patch('/questions/{question}', [QuestionController::class, 'update']);
 Route::post('/{question}/comments', [CommentController::class, 'store']);
 Route::post('/{comment}/replies', [ReplyController::class, 'store']);

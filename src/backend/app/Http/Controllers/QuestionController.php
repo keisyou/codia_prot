@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Question\StoreQuestionRequest;
+use App\Http\Requests\Question\UpdateQuestionRequest;
 use App\Http\Resources\Question\QuestionCollection;
 use App\Http\Resources\Question\QuestionResource;
 use App\Models\Question;
@@ -30,5 +31,17 @@ class QuestionController extends Controller
         });
 
         return response()->json(new QuestionResource($question), 201);
+    }
+
+    public function update(UpdateQuestionRequest $request, Question $question): JsonResponse
+    {
+        $validated = $request->validated();
+
+        DB::transaction(function () use ($question, $validated) {
+            $question->update($validated);
+            $question->categories()->sync($validated['category_id']);
+        });
+
+        return response()->json(new QuestionResource($question), 200);
     }
 }
