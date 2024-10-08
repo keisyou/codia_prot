@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources\Question;
 
-use App\Http\Resources\Category\CategoryCollection;
 use App\Http\Resources\Category\CategoryResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -28,9 +27,9 @@ class QuestionResource extends JsonResource
             'title' => $this->title,
             'content' => $this->content,
             'is_resolved' => $this->is_resolved,
+            'categories' => CategoryResource::collection($this->categories),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'categories' => new CategoryCollection($this->categories),
         ];
     }
 }

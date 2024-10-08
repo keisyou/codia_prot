@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Question\StoreQuestionRequest;
+use App\Http\Resources\Question\QuestionCollection;
 use App\Http\Resources\Question\QuestionResource;
 use App\Models\Question;
 use Illuminate\Http\JsonResponse;
@@ -10,6 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
+    public function index(): JsonResponse
+    {
+        $questions = Question::orderBy('created_at', 'desc')->paginate(15);
+
+        return response()->json(new QuestionCollection($questions), 200);
+    }
+
     public function store(StoreQuestionRequest $request): JsonResponse
     {
         $validated = $request->validated();
