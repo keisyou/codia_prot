@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources\Comment;
 
-use App\Http\Resources\Reply\ReplyResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
