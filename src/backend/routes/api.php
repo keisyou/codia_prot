@@ -13,4 +13,5 @@ Route::get('/user', function (Request $request) {
 Route::apiResource('/questions', QuestionController::class);
 Route::get('/{question}/comments', [CommentController::class, 'index']);
 Route::post('/{question}/comments', [CommentController::class, 'store']);
+Route::patch('/{question}/comments/{comment}', [CommentController::class, 'update']);
 Route::post('/{comment}/replies', [ReplyController::class, 'store']);
