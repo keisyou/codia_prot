@@ -33,6 +33,11 @@ class QuestionController extends Controller
         return response()->json(new QuestionResource($question), 201);
     }
 
+    public function show(Question $question): JsonResponse
+    {
+        return response()->json(new QuestionResource($question), 200);
+    }
+
     public function update(UpdateQuestionRequest $request, Question $question): JsonResponse
     {
         $validated = $request->validated();
