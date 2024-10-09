@@ -16,3 +16,4 @@ Route::post('/{question}/comments', [CommentController::class, 'store']);
 Route::patch('/{question}/comments/{comment}', [CommentController::class, 'update']);
 Route::delete('/{question}/comments/{comment}', [CommentController::class, 'destroy']);
 Route::post('/{comment}/replies', [ReplyController::class, 'store']);
+Route::patch('/{comment}/replies/{reply}', [ReplyController::class, 'update']);
