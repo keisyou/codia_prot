@@ -15,5 +15,5 @@ Route::get('/{question}/comments', [CommentController::class, 'index']);
 Route::post('/{question}/comments', [CommentController::class, 'store']);
 Route::patch('/{question}/comments/{comment}', [CommentController::class, 'update']);
 Route::delete('/{question}/comments/{comment}', [CommentController::class, 'destroy']);
-Route::post('/{comment}/replies', [ReplyController::class, 'store']);
+Route::apiResource('/{comment}/replies', ReplyController::class)->only(['store', 'destroy']);
 Route::patch('/{comment}/replies/{reply}', [ReplyController::class, 'update']);

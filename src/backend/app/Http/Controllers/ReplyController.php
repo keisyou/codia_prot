@@ -28,4 +28,11 @@ class ReplyController extends Controller
 
         return response()->json(new ReplyResource($reply), 200);
     }
+
+    public function destroy(Comment $comment, Reply $reply): JsonResponse
+    {
+        $reply->delete();
+
+        return response()->json(200);
+    }
 }
