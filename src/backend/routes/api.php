@@ -11,5 +11,6 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::apiResource('/questions', QuestionController::class);
+Route::get('/{question}/comments', [CommentController::class, 'index']);
 Route::post('/{question}/comments', [CommentController::class, 'store']);
 Route::post('/{comment}/replies', [ReplyController::class, 'store']);
