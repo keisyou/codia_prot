@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Comment\StoreCommentRequest;
+use App\Http\Requests\Comment\UpdateCommentRequest;
 use App\Http\Resources\Comment\CommentCollection;
 use App\Http\Resources\Comment\CommentResource;
+use App\Models\Comment;
 use App\Models\Question;
 use Illuminate\Http\JsonResponse;
 
@@ -24,5 +26,14 @@ class CommentController extends Controller
         $comment = $question->comments()->create($validated);
 
         return response()->json(new CommentResource($comment), 201);
+    }
+
+    public function update(UpdateCommentRequest $request, Question $question, Comment $comment): JsonResponse
+    {
+        $validated = $request->validated();
+
+        $comment->update($validated);
+
+        return response()->json(new CommentResource($comment), 200);
     }
 }
