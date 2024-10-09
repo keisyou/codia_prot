@@ -10,10 +10,13 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+// 質問
 Route::apiResource('/questions', QuestionController::class);
-Route::get('/{question}/comments', [CommentController::class, 'index']);
-Route::post('/{question}/comments', [CommentController::class, 'store']);
+
+// コメント
+Route::apiResource('/{question}/comments', CommentController::class)->only(['index', 'store', 'destroy']);
 Route::patch('/{question}/comments/{comment}', [CommentController::class, 'update']);
-Route::delete('/{question}/comments/{comment}', [CommentController::class, 'destroy']);
+
+// リプライ
 Route::apiResource('/{comment}/replies', ReplyController::class)->only(['store', 'destroy']);
 Route::patch('/{comment}/replies/{reply}', [ReplyController::class, 'update']);
