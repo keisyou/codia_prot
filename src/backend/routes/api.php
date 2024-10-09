@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ReplyController;
@@ -12,6 +13,9 @@ Route::get('/user', function (Request $request) {
 
 // 質問
 Route::apiResource('/questions', QuestionController::class);
+
+// カテゴリー
+Route::get('/categories', [CategoryController::class, 'index']);
 
 // コメント
 Route::apiResource('/{question}/comments', CommentController::class)->only(['index', 'store', 'destroy']);
