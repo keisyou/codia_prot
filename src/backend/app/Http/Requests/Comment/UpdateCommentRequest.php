@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Question;
+namespace App\Http\Requests\Comment;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StoreQuestionRequest extends FormRequest
+class UpdateCommentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class StoreQuestionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required'],
             'content' => ['required'],
-            'category_id' => ['required'],
         ];
     }
 
@@ -38,9 +36,7 @@ class StoreQuestionRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.required' => 'タイトルが必須です',
-            'content.required' => '内容が必須です',
-            'category_id.required' => 'カテゴリーは必須です',
+            'content.required' => 'コメントは必須です',
         ];
     }
 

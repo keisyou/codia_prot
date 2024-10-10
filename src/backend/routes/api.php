@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ReplyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -8,5 +11,16 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/questions', [QuestionController::class, 'index']);
-Route::post('/questions', [QuestionController::class, 'store']);
+// 質問
+Route::apiResource('/questions', QuestionController::class);
+
+// カテゴリー
+Route::get('/categories', [CategoryController::class, 'index']);
+
+// コメント
+Route::apiResource('/{question}/comments', CommentController::class)->only(['index', 'store', 'destroy']);
+Route::patch('/{question}/comments/{comment}', [CommentController::class, 'update']);
+
+// リプライ
+Route::apiResource('/{comment}/replies', ReplyController::class)->only(['store', 'destroy']);
+Route::patch('/{comment}/replies/{reply}', [ReplyController::class, 'update']);
