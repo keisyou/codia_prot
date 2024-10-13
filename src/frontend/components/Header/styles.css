@@ -1,32 +1,22 @@
-.storybook-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 15px 20px;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid #D9D9D9;
+  padding: 1rem 2rem;
 }
 
-.storybook-header svg {
-  display: inline-block;
-  vertical-align: top;
+.logo-box {
+  display: flex;
+  align-items: center;
 }
 
-.storybook-header h1 {
-  display: inline-block;
-  vertical-align: top;
-  margin: 6px 0 6px 10px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1;
+.title {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
-.storybook-header button + button {
-  margin-left: 10px;
-}
-
-.storybook-header .welcome {
-  margin-right: 10px;
-  color: #333;
-  font-size: 14px;
+.button-box {
+  display: flex;
+  gap: 1rem;
 }

@@ -1,0 +1,42 @@
+.button {
+  border-radius: .5rem;
+  font-weight: bold;
+}
+
+.button--primary {
+  color: var(--text-0);
+  background-color: var(--background-2);
+  border: solid 1px var(--border-1);
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    color: var(--text-2);
+    background-color: var(--background-0);
+  }
+}
+
+.button--secondary {
+  color: var(--text-2);
+  border: solid 1px var(--border-1);
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    color: var(--text-0);
+    background-color: var(--background-2);
+  }
+}
+
+.button--small {
+  font-size: .75rem;
+  padding: .5rem 1rem;
+}
+
+.button--medium {
+  font-size: .875rem;
+  padding: .625rem 1.25rem;
+}
+
+.button--large {
+  font-size: 1rem;
+  padding: .75rem 1.5rem;
+}
