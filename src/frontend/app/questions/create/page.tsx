@@ -1,27 +1,27 @@
-"use client";
+import "./styles.css";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { CreateForm } from "./_component/CreateForm";
+import { getCategories } from "./getCategories";
 
-import { useFormState } from "react-dom";
-import { createQuestion } from "./actions";
-import { initialState } from "./state";
+export default async function Create() {
+  const queryClient = new QueryClient();
 
-function Create() {
-  const [state, formAction] = useFormState(createQuestion, initialState);
+  await queryClient.prefetchQuery({
+    queryKey: ["categories"],
+    queryFn: getCategories,
+  });
 
   return (
-    <form action={formAction}>
-      <div>
-        <label htmlFor="title">タイトル</label>
-        <input type="text" name="title" id="title" />
-      </div>
+    <div className="wrapper">
+      <h2 className="page-title">質問作成</h2>
 
-      <div>
-        <label htmlFor="content">内容</label>
-        <textarea name="content" id="content"></textarea>
-      </div>
-
-      <button type="submit">作成する</button>
-    </form>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <CreateForm />
+      </HydrationBoundary>
+    </div>
   );
 }
-
-export default Create;

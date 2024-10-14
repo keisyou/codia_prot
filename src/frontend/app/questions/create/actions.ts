@@ -15,12 +15,11 @@ export async function createQuestion(
       body: JSON.stringify({
         title: formData.get("title"),
         content: formData.get("content"),
+        category_id: formData.get("category_id"),
       }),
     });
 
     const data = await res.json();
-
-    console.log(data);
 
     return { message: "" };
   } catch (e) {

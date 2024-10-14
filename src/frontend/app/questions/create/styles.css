@@ -1,0 +1,10 @@
+.wrapper {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.page-title {
+  margin-bottom: 1rem;
+}
