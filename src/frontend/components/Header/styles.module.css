@@ -16,7 +16,7 @@
   font-size: 1.5rem;
 }
 
-.button-box {
+.button_box {
   display: flex;
   gap: 1rem;
 }
