@@ -1,8 +1,8 @@
 "use client";
 
+import styles from "./styles.module.css";
 import Image from "next/image";
 import { Button } from "../Button";
-import "./styles.css";
 
 type User = {
   name: string;
@@ -17,15 +17,15 @@ export interface HeaderProps {
 
 export const Header = () => (
   <header>
-    <div className="header">
-      <div className="logo-box">
+    <div className={styles.header}>
+      <div className={styles.logo_box}>
         <Image src="/icon.svg" alt="icon" priority width={48} height={48} />
         <h1 className="title">Codia</h1>
       </div>
 
-      <div className="button-box">
+      <div className={styles.button_box}>
         <Button label="ログイン" />
-        <Button type={"secondary"} label="新規登録" />
+        <Button variant="secondary" label="新規登録" />
       </div>
     </div>
   </header>

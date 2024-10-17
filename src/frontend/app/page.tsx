@@ -1,11 +1,10 @@
-import "./styles.css";
 import {
   dehydrate,
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
 import { QuestionList } from "./_components/QuestionList";
-import { getQuestions } from "./_components/QuestionList/getQuestions";
+import { getQuestions } from "@/api/questions/getQuestions";
 
 export default async function Top() {
   const queryClient = new QueryClient();

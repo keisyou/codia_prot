@@ -1,4 +1,4 @@
-import "./styles.css";
+import styles from "./styles.module.css";
 
 export interface ButtonProps {
   variant?: "primary" | "secondary";
@@ -18,7 +18,7 @@ export const Button = ({
   return (
     <button
       type={type}
-      className={["button", `button--${size}`, `button--${variant}`].join(" ")}
+      className={`${styles.button} ${styles[`button--${size}`]} ${styles[`button--${variant}`]}`}
       {...props}
     >
       {label}

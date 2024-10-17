@@ -6,7 +6,7 @@
   padding: 1rem 2rem;
 }
 
-.logo-box {
+.logo_box {
   display: flex;
   align-items: center;
 }
@@ -16,7 +16,7 @@
   font-size: 1.5rem;
 }
 
-.button-box {
+.button_box {
   display: flex;
   gap: 1rem;
 }
