@@ -32,21 +32,21 @@ export const QuestionListItem = ({ question }: { question: Question }) => {
 
         <div className={styles["question-item__metrics"]}>
           <div
-            className={styles["question-item__metric question-item__metric--comments"]}
+            className={`${styles["question-item__metric"]} ${styles["question-item__metric--comments"]}`}
             aria-label="コメント数"
           >
             <FaRegCommentAlt />
             <span className={styles["question-item__metric-count"]}>1</span>
           </div>
           <div
-            className={styles["question-item__metric question-item__metric--likes"]}
+            className={`${styles["question-item__metric"]} ${styles["question-item__metric--likes"]}`}
             aria-label="いいね数"
           >
             <FaRegHeart />
             <span className={styles["question-item__metric-count"]}>1</span>
           </div>
           <div
-            className={styles["question-item__metric question-item__metric--views"]}
+            className={`${styles["question-item__metric"]} ${styles["question-item__metric--views"]}`}
             aria-label="閲覧数"
           >
             <LuEye />
