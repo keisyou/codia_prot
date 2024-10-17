@@ -1,6 +1,6 @@
 "use client";
 
-import "./styles.css";
+import styles from "./styles.module.css";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { getQuestions } from "./getQuestions";
@@ -14,7 +14,7 @@ export const QuestionList = () => {
 
   return (
     <>
-      <div className="question-list">
+      <div className={styles.question_list}>
         {questions.map((question) => (
           <Link key={question.id} href={`/questions/${question.id}`}>
             <QuestionListItem question={question} />
