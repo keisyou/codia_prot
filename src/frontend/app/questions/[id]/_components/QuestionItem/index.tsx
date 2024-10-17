@@ -18,10 +18,15 @@ export const QuestionItem = ({ questionId }: { questionId: string }) => {
       <div className={styles["question-item__header"]}>
         <div className={styles["wrapper"]}>
           <div className={styles["question-item__header__inner"]}>
-            <h2 className={styles["question-item__title"]}>{question?.title}</h2>
+            <h2 className={styles["question-item__title"]}>
+              {question?.title}
+            </h2>
             <ul className={styles["question-item__category"]}>
               {question?.categories.map((category) => (
-                <li key={category.id} className={styles["question-item__category-item"]}>
+                <li
+                  key={category.id}
+                  className={styles["question-item__category-item"]}
+                >
                   {category.name}
                 </li>
               ))}
@@ -41,7 +46,9 @@ export const QuestionItem = ({ questionId }: { questionId: string }) => {
                     aria-label="コメント数"
                   >
                     <FaRegCommentAlt size={16} />
-                    <span className={styles["question-item__metric-count"]}>1</span>
+                    <span className={styles["question-item__metric-count"]}>
+                      1
+                    </span>
                     <span>コメント</span>
                   </div>
                   <div
@@ -49,7 +56,9 @@ export const QuestionItem = ({ questionId }: { questionId: string }) => {
                     aria-label="いいね数"
                   >
                     <FaRegHeart size={16} />
-                    <span className={styles["question-item__metric-count"]}>1</span>
+                    <span className={styles["question-item__metric-count"]}>
+                      1
+                    </span>
                     <span>いいね</span>
                   </div>
                   <div
@@ -57,7 +66,9 @@ export const QuestionItem = ({ questionId }: { questionId: string }) => {
                     aria-label="閲覧数"
                   >
                     <LuEye size={16} />
-                    <span className={styles["question-item__metric-count"]}>1</span>
+                    <span className={styles["question-item__metric-count"]}>
+                      1
+                    </span>
                     <span>閲覧</span>
                   </div>
                 </div>

@@ -18,7 +18,9 @@ export const CreateForm = () => {
 
   return (
     <form action={formAction}>
-      <section className={`${styles["create-form__section"]} ${styles["create-form__section-margin"]} ${styles["create-form__section--title"]}`}>
+      <section
+        className={`${styles["create-form__section"]} ${styles["create-form__section-margin"]} ${styles["create-form__section--title"]}`}
+      >
         <div className={styles["create-form__field"]}>
           <div className={styles["create-form__field-header"]}>
             <h3 className={styles["create-form__field-title"]}>
@@ -42,7 +44,9 @@ export const CreateForm = () => {
         </div>
       </section>
 
-      <section className={`${styles["create-form__section"]} ${styles["create-form__section-margin"]} ${styles["create-form__section--content"]}`}>
+      <section
+        className={`${styles["create-form__section"]} ${styles["create-form__section-margin"]} ${styles["create-form__section--content"]}`}
+      >
         <div className={styles["create-form__field"]}>
           <div className={styles["create-form__field-header"]}>
             <h3 className={styles["create-form__field-title"]}>
@@ -66,7 +70,9 @@ export const CreateForm = () => {
         </div>
       </section>
 
-      <section className={`${styles["create-form__section"]} ${styles["create-form__section-margin"]} ${styles["create-form__section--content"]}`}>
+      <section
+        className={`${styles["create-form__section"]} ${styles["create-form__section-margin"]} ${styles["create-form__section--content"]}`}
+      >
         <div className={styles["create-form__field"]}>
           <div className={styles["create-form__field-header"]}>
             <h3 className={styles["create-form__field-title"]}>

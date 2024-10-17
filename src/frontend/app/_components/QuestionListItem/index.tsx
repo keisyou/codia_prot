@@ -13,7 +13,10 @@ export const QuestionListItem = ({ question }: { question: Question }) => {
 
         <div className={styles["question-item__user-info"]}>
           <p className={styles["question-item__username"]}>shtk0llq</p>
-          <time className={styles["question-item__created-at"]} dateTime="2024年01月01日">
+          <time
+            className={styles["question-item__created-at"]}
+            dateTime="2024年01月01日"
+          >
             {question.created_at}
           </time>
         </div>
@@ -24,7 +27,10 @@ export const QuestionListItem = ({ question }: { question: Question }) => {
       <div className={styles["question-item__bottom"]}>
         <div className={styles["question-item__category"]}>
           {question.categories.map((category) => (
-            <span key={category.id} className={styles["question-item__category-label"]}>
+            <span
+              key={category.id}
+              className={styles["question-item__category-label"]}
+            >
               {category.name}
             </span>
           ))}
