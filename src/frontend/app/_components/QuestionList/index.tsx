@@ -14,7 +14,7 @@ export const QuestionList = () => {
 
   return (
     <>
-      <div className={styles.question_list}>
+      <div className={styles["question-list"]}>
         {questions.map((question) => (
           <Link key={question.id} href={`/questions/${question.id}`}>
             <QuestionListItem question={question} />
