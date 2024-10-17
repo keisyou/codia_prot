@@ -3,6 +3,9 @@ import { FetchApiProps } from "./type";
 export default async function fetchApi<T>({
   method,
   url,
+  headerOptions,
+  nextOptions,
+  body,
   ...options
 }: FetchApiProps): Promise<T | undefined> {
   try {
@@ -13,8 +16,11 @@ export default async function fetchApi<T>({
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          ...options,
+          ...headerOptions,
         },
+        next: nextOptions,
+        body: body && JSON.stringify(body),
+        ...options,
       },
     );
 

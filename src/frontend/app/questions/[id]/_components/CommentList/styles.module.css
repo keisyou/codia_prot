@@ -1,0 +1,50 @@
+.wrapper {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.comment-list {
+}
+
+.comment-list__header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-list__count {
+}
+
+.comment-list__sort {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.comment-list__sort__latest,
+.comment-list__sort__oldest {
+  list-style: none;
+  background-color: var(--background-0);
+  border: solid 1px #d9d9d9;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  box-shadow: 0 1px 1px 0 var(--box-shadow-0);
+
+  &:hover {
+    box-shadow: 0 var(--box-shadow-0);
+  }
+
+  &.comment-list__sort__selected {
+    font-weight: bold;
+    background-color: #f6f8fa;
+    box-shadow: 0 var(--box-shadow-0);
+  }
+}
+
+.comment-list-items {
+  display: grid;
+  gap: 2rem;
+}
