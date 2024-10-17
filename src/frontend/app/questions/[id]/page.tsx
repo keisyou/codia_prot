@@ -11,7 +11,7 @@ export default async function Show({ params }: { params: { id: string } }) {
 
   await queryClient.prefetchQuery({
     queryKey: ["question", params.id],
-    queryFn: () => getQuestion(params.id),
+    queryFn: () => getQuestion({ id: params.id }),
   });
 
   return (

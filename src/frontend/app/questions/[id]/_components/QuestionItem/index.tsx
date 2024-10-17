@@ -10,7 +10,7 @@ import { IoMdTime } from "react-icons/io";
 export const QuestionItem = ({ questionId }: { questionId: string }) => {
   const { data: question } = useQuery({
     queryKey: ["question", questionId],
-    queryFn: () => getQuestion(questionId),
+    queryFn: () => getQuestion({ id: questionId }),
   });
 
   return (
