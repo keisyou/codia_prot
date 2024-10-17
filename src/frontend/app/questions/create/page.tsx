@@ -1,4 +1,4 @@
-import "./styles.css";
+import styles from "./styles.module.css";
 import {
   dehydrate,
   HydrationBoundary,
@@ -16,8 +16,8 @@ export default async function Create() {
   });
 
   return (
-    <div className="wrapper">
-      <h2 className="page-title">質問作成</h2>
+    <div className={styles["wrapper"]}>
+      <h2 className={styles["page-title"]}>質問作成</h2>
 
       <HydrationBoundary state={dehydrate(queryClient)}>
         <CreateForm />
