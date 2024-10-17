@@ -3,7 +3,7 @@
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { getQuestions } from "./getQuestions";
+import { getQuestions } from "@/api/questions/getQuestions";
 import { QuestionListItem } from "../QuestionListItem";
 
 export const QuestionList = () => {

@@ -1,6 +1,7 @@
 import { FetchApiProps } from "./type";
 
 export default async function fetchApi<T>({
+  method,
   url,
   ...options
 }: FetchApiProps): Promise<T | undefined> {
@@ -8,6 +9,7 @@ export default async function fetchApi<T>({
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/${url}`,
       {
+        method: method,
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
