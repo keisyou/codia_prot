@@ -3,7 +3,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { getQuestion } from "./getQuestion";
+import { getQuestion } from "@/api/questions/getQuestion";
 import { QuestionItem } from "./_components/QuestionItem";
 
 export default async function Show({ params }: { params: { id: string } }) {

@@ -2,7 +2,7 @@
 
 import styles from "./styles.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { getQuestion } from "../../getQuestion";
+import { getQuestion } from "@/api/questions/getQuestion";
 import { FaRegCommentAlt, FaRegHeart } from "react-icons/fa";
 import { LuEye } from "react-icons/lu";
 import { IoMdTime } from "react-icons/io";
