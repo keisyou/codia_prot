@@ -3,9 +3,9 @@
 import styles from "./styles.module.css";
 import { useFormState } from "react-dom";
 import { useQuery } from "@tanstack/react-query";
-import { createQuestion } from "../../actions";
-import { initialState } from "../../state";
-import { getCategories } from "../../getCategories";
+import { createQuestion } from "@/api/questions/postQuestion/actions";
+import { initialState } from "@/api/questions/postQuestion/state";
+import { getCategories } from "@/api/categories/getCategories";
 import { Button } from "@/components/Button";
 
 export const CreateForm = () => {

@@ -7,7 +7,7 @@ export default async function fetchApi<T>({
   nextOptions,
   body,
   ...options
-}: FetchApiProps): Promise<T | undefined> {
+}: FetchApiProps<T>): Promise<T | undefined> {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/${url}`,
