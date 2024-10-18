@@ -1,9 +1,9 @@
-export interface FetchApiProps {
+export interface FetchApiProps<T> {
   method: "GET" | "POST" | "PATCH" | "DELETE";
   url: string;
   // https://developer.mozilla.org/ja/docs/Web/API/Headers
   headerOptions?: Record<string, string>;
-  body?: BodyInit;
+  body?: T;
   nextOptions?: {
     /*
       時間ベースの再検証

@@ -1,9 +1,6 @@
 "use server";
 
-interface Category {
-  id: number;
-  name: string;
-}
+import { Category } from "./type";
 
 export const getCategories = async (): Promise<Category[]> => {
   const response = await fetch(
