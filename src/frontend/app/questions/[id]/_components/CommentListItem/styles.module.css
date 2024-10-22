@@ -1,9 +1,13 @@
+.comment-list-item__container {
+  border: solid 1px #d9d9d9;
+  border-radius: 0.25rem;
+}
+
 .comment-list-item {
   display: grid;
   gap: 1rem;
-  border: solid 1px #d9d9d9;
-  border-radius: 0.25rem;
   padding: 1rem;
+  border-bottom: solid 1px #d9d9d9;
 }
 
 .comment-list-item__top {
@@ -25,10 +29,6 @@
 }
 
 .comment-list-item__created-at {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 0.25rem;
   color: #666;
   font-size: 0.875rem;
 }
@@ -48,4 +48,7 @@
 .comment-list-item__reply__count {
   color: #666;
   font-size: 0.875rem;
+}
+
+.comment-list-item__child {
 }
