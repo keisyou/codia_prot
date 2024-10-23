@@ -1,11 +1,16 @@
 import styles from "./styles.module.css";
-import { ReplyList } from "../ReplyList";
 import type { Comment } from "./type";
+import { ReplyList } from "../ReplyList";
 
 export const CommentListItem = ({ comment }: { comment: Comment }) => {
   return (
     <div className={styles["comment-list-item__container"]}>
-      <div className={styles["comment-list-item"]}>
+      <div
+        className={`
+          ${styles["comment-list-item"]}
+          ${comment.replies.length && styles["border-bottom"]}
+        `}
+      >
         <div className={styles["comment-list-item__top"]}>
           <div className={styles["comment-list-item__user-image"]}></div>
           <p className={styles["comment-list-item__username"]}>shtk0llq</p>

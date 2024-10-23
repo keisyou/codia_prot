@@ -2,6 +2,8 @@
 
 import fetchApi from "@/api/libs/fetch";
 import { State } from "./state";
+import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 interface QuestionPost {
   title: FormDataEntryValue;
@@ -13,36 +15,40 @@ export async function createQuestion(
   prevState: State,
   formData: FormData,
 ): Promise<State> {
-  const title = formData.get("title");
-  const content = formData.get("content");
-  const category_id = formData.get("category_id");
+  try {
+    const title = formData.get("title");
+    const content = formData.get("content");
+    const category_id = formData.get("category_id");
 
-  if (!title || !content || !category_id) {
-    throw new Error("Missing required fields");
-  }
+    if (!title || !content || !category_id) {
+      throw new Error("Missing required fields");
+    }
 
-  const response = await fetchApi<QuestionPost>({
-    method: "POST",
-    url: "questions",
-    body: {
-      title: title,
-      content: content,
-      category_id: category_id,
-    },
-  });
+    const response = await fetchApi<QuestionPost>({
+      method: "POST",
+      url: "questions",
+      body: {
+        title: title,
+        content: content,
+        category_id: category_id,
+      },
+    });
 
-  // response の処理
-  if (response) {
     // 成功時の処理
-    return {
-      ...prevState,
-      // response データを使用して state を更新
-    };
-  } else {
+    // const newState = {
+    //   ...prevState,
+    //   data: response,
+    //   message: "成功",
+    // };
+
+    revalidatePath("/");
+  } catch (error) {
     // エラー時の処理
     return {
       ...prevState,
       error: "Failed to create question",
     };
   }
+
+  redirect("/");
 }
