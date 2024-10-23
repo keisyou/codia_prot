@@ -3,6 +3,7 @@
   padding: 1rem;
   display: grid;
   gap: 1rem;
+  border-radius: 0.25rem;
 }
 
 .reply-list-item__top {
