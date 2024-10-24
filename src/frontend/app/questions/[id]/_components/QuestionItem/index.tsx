@@ -1,13 +1,16 @@
 "use client";
 
 import styles from "./styles.module.css";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getQuestion } from "@/api/questions/getQuestion";
 import { FaRegCommentAlt, FaRegHeart } from "react-icons/fa";
 import { LuEye } from "react-icons/lu";
 import { IoMdTime } from "react-icons/io";
+import { QuestionUpdateForm } from "../QuestionUpdateForm";
 
 export const QuestionItem = ({ questionId }: { questionId: string }) => {
+  const [isEdit, setIsEdit] = useState(false);
   const { data: question } = useQuery({
     queryKey: ["question", questionId],
     queryFn: () => getQuestion({ id: questionId }),
@@ -85,9 +88,28 @@ export const QuestionItem = ({ questionId }: { questionId: string }) => {
 
       <div className={styles["question-item__main"]}>
         <div className={styles["wrapper"]}>
-          <div className={styles["question-item__content"]}>
-            <h3 className={styles["question-item__content-title"]}>内容</h3>
-            {question?.content}
+          <div className={styles["question-item__container"]}>
+            {isEdit ? (
+              <QuestionUpdateForm question={question} setIsEdit={setIsEdit} />
+            ) : (
+              <div>
+                <div className={styles["quesiton-item__container__top"]}>
+                  <h3 className={styles["question-item__container--title"]}>
+                    内容
+                  </h3>
+                  <button
+                    className={styles["question-item__container--edit-button"]}
+                    onClick={() => setIsEdit(true)}
+                  >
+                    Edit
+                  </button>
+                </div>
+
+                <div className={styles["question-item__container--content"]}>
+                  {question?.content}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

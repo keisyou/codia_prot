@@ -1,11 +1,11 @@
 import styles from "./styles.module.css";
+import { useFormStatus } from "react-dom";
 
 export interface ButtonProps {
   variant?: "primary" | "secondary";
   type?: "button" | "submit";
   size?: "small" | "medium" | "large";
   label: string;
-  disabled?: boolean;
   onClick?: () => void;
 }
 
@@ -14,9 +14,10 @@ export const Button = ({
   type = "button",
   size = "medium",
   label,
-  disabled = false,
   ...props
 }: ButtonProps) => {
+  const { pending } = useFormStatus();
+
   return (
     <button
       type={type}
@@ -24,9 +25,9 @@ export const Button = ({
         ${styles.button}
         ${styles[`button--${size}`]}
         ${styles[`button--${variant}`]}
-        ${disabled && styles[`button--${variant}--disabled`]}
+        ${pending && styles[`button--${variant}--disabled`]}
       `}
-      disabled={disabled}
+      disabled={pending}
       {...props}
     >
       {label}
