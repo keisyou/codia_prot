@@ -4,8 +4,8 @@ import fetchApi from "@/api/libs/fetch";
 import { State } from "./state";
 import { revalidateTag } from "next/cache";
 
-export async function createComment(
-  id: string,
+export async function createReply(
+  id: number,
   prevState: State,
   formData: FormData,
 ): Promise<State> {
@@ -18,13 +18,13 @@ export async function createComment(
 
     const response = await fetchApi({
       method: "POST",
-      url: `${id}/comments`,
+      url: `${id}/replies`,
       body: {
         content: content,
       },
     });
 
-    revalidateTag("comments");
+    revalidateTag("replies");
 
     return {
       ...prevState,
@@ -33,7 +33,7 @@ export async function createComment(
   } catch (error) {
     return {
       ...prevState,
-      error: "Failed to create question",
+      error: "Failed to create reply",
     };
   }
 }

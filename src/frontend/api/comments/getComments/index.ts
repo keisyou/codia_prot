@@ -11,7 +11,7 @@ export async function getComments({
   const comments = await fetchApi<Comment[]>({
     method: "GET",
     url: `${id}/comments`,
-    cache: "no-cache",
+    cache: "no-store",
   });
 
   return comments;
