@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ReplyList } from "../ReplyList";
 import { ReplyForm } from "../ReplyForm";
 import { CommentUpdateForm } from "./CommentUpdateForm";
+import { Modal } from "./Modal";
 
 export const CommentListItem = ({
   questionId,
@@ -13,6 +14,7 @@ export const CommentListItem = ({
   comment: Comment;
 }) => {
   const [isEdit, setIsEdit] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className={styles["comment-list-item__container"]}>
@@ -35,12 +37,27 @@ export const CommentListItem = ({
                   {comment.created_at}
                 </p>
               </div>
-              <button
-                className={styles["comment-list-item--edit-button"]}
-                onClick={() => setIsEdit(true)}
-              >
-                Edit
-              </button>
+              <div className={styles["comment-list-item__actions"]}>
+                <button
+                  className={styles["comment-list-item--edit-button"]}
+                  onClick={() => setIsEdit(true)}
+                >
+                  Edit
+                </button>
+                <button
+                  className={styles["comment-list-item--delete-button"]}
+                  onClick={() => setIsOpen(true)}
+                >
+                  Delete
+                </button>
+
+                <Modal
+                  isOpen={isOpen}
+                  setIsOpen={setIsOpen}
+                  questionId={questionId}
+                  commentId={comment.id}
+                />
+              </div>
             </div>
             <div className={styles["comment-list-item__main"]}>
               <div className={styles["comment-list-item__main__content"]}>

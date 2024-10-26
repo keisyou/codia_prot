@@ -40,7 +40,24 @@
   font-size: 0.875rem;
 }
 
+.comment-list-item__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .comment-list-item--edit-button {
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.25rem;
+
+  &:hover {
+    background-color: #818b981a;
+  }
+}
+
+.comment-list-item--delete-button {
+  color: #d1242f;
   font-size: 0.875rem;
   font-weight: bold;
   padding: 0.375rem 0.625rem;
