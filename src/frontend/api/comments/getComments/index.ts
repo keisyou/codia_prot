@@ -6,7 +6,7 @@ import fetchApi from "@/api/libs/fetch";
 export async function getComments({
   id,
 }: {
-  id: string;
+  id: number;
 }): Promise<Comment[] | undefined> {
   const comments = await fetchApi<Comment[]>({
     method: "GET",

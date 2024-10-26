@@ -4,21 +4,24 @@ import fetchApi from "@/api/libs/fetch";
 import { State } from "./state";
 import { revalidateTag } from "next/cache";
 
-export async function createComment(
-  id: number,
+export async function updateComment(
+  questionId: number,
+  commentId: number,
   prevState: State,
   formData: FormData,
 ): Promise<State> {
+  const content = formData.get("content");
+
+  console.log(content);
+
+  if (!content) {
+    throw new Error("Missing required fields");
+  }
+
   try {
-    const content = formData.get("content");
-
-    if (!content) {
-      throw new Error("Missing required fields");
-    }
-
     const response = await fetchApi({
-      method: "POST",
-      url: `${id}/comments`,
+      method: "PATCH",
+      url: `${questionId}/comments/${commentId}`,
       body: {
         content: content,
       },
@@ -33,7 +36,7 @@ export async function createComment(
   } catch (error) {
     return {
       ...prevState,
-      error: "Failed to create question",
+      message: "Failed to update comment",
     };
   }
 }

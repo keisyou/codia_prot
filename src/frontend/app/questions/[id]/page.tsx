@@ -9,7 +9,7 @@ import { QuestionItem } from "./_components/QuestionItem";
 import { CommentList } from "./_components/CommentList";
 import { CommentForm } from "./_components/CommentForm";
 
-export default async function Show({ params }: { params: { id: string } }) {
+export default async function Show({ params }: { params: { id: number } }) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({

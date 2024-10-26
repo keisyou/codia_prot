@@ -7,7 +7,7 @@ import { createComment } from "@/api/comments/postComment/actions";
 import { initialState } from "@/api/comments/postComment/state";
 import { Button } from "@/components/Button";
 
-export const CommentForm = ({ questionId }: { questionId: string }) => {
+export const CommentForm = ({ questionId }: { questionId: number }) => {
   const formRef = useRef<HTMLFormElement>(null);
   const [state, formAction] = useFormState(
     createComment.bind(null, questionId),
