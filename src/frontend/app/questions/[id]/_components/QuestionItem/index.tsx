@@ -10,7 +10,7 @@ import { IoMdTime } from "react-icons/io";
 import { QuestionUpdateForm } from "../QuestionUpdateForm";
 import { Modal } from "./Modal";
 
-export const QuestionItem = ({ questionId }: { questionId: string }) => {
+export const QuestionItem = ({ questionId }: { questionId: number }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { data: question } = useQuery({

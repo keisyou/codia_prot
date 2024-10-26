@@ -6,7 +6,7 @@ import fetchApi from "@/api/libs/fetch";
 export async function getQuestion({
   id,
 }: {
-  id: string;
+  id: number;
 }): Promise<Question | undefined> {
   const question = await fetchApi<Question>({
     method: "GET",

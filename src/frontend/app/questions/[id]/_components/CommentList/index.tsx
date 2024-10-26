@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getComments } from "@/api/comments/getComments";
 import { CommentListItem } from "../CommentListItem";
 
-export const CommentList = ({ questionId }: { questionId: string }) => {
+export const CommentList = ({ questionId }: { questionId: number }) => {
   const { data: comments = [] } = useQuery({
     queryKey: ["comments", questionId],
     queryFn: () => getComments({ id: questionId }),
@@ -31,7 +31,11 @@ export const CommentList = ({ questionId }: { questionId: string }) => {
 
         <div className={styles["comment-list-items"]}>
           {comments.map((comment) => (
-            <CommentListItem key={comment.id} comment={comment} />
+            <CommentListItem
+              key={comment.id}
+              questionId={questionId}
+              comment={comment}
+            />
           ))}
         </div>
       </div>

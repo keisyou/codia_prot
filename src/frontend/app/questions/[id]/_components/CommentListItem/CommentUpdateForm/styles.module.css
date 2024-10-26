@@ -1,0 +1,22 @@
+.comment-update-form {
+}
+
+.comment-update-form__container {
+  border-radius: 0.25rem;
+  background-color: #ffffff;
+}
+
+.comment-update-form__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.comment-update-form__textarea {
+  border: solid 1px #d9d9d9;
+  border-radius: 0.25rem;
+  width: 100%;
+  padding: 0.5rem;
+  field-sizing: content;
+}
