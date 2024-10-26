@@ -39,6 +39,14 @@ body {
     sans-serif;
 }
 
+/* Modal */
+body.has-modal {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 button {
   cursor: pointer;
   background-color: var(--background-0);

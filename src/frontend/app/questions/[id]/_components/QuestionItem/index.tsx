@@ -8,9 +8,11 @@ import { FaRegCommentAlt, FaRegHeart } from "react-icons/fa";
 import { LuEye } from "react-icons/lu";
 import { IoMdTime } from "react-icons/io";
 import { QuestionUpdateForm } from "../QuestionUpdateForm";
+import { Modal } from "./Modal";
 
 export const QuestionItem = ({ questionId }: { questionId: string }) => {
   const [isEdit, setIsEdit] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const { data: question } = useQuery({
     queryKey: ["question", questionId],
     queryFn: () => getQuestion({ id: questionId }),
@@ -21,9 +23,24 @@ export const QuestionItem = ({ questionId }: { questionId: string }) => {
       <div className={styles["question-item__header"]}>
         <div className={styles["wrapper"]}>
           <div className={styles["question-item__header__inner"]}>
-            <h2 className={styles["question-item__title"]}>
-              {question?.title}
-            </h2>
+            <div className={styles["question-item__header__inner__top"]}>
+              <h2 className={styles["question-item__title"]}>
+                {question?.title}
+              </h2>
+
+              <button
+                className={styles["question-item__actions__delete"]}
+                onClick={() => setIsOpen(true)}
+              >
+                Delete
+              </button>
+
+              <Modal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                questionId={question!.id}
+              />
+            </div>
             <ul className={styles["question-item__category"]}>
               {question?.categories.map((category) => (
                 <li
@@ -90,7 +107,7 @@ export const QuestionItem = ({ questionId }: { questionId: string }) => {
         <div className={styles["wrapper"]}>
           <div className={styles["question-item__container"]}>
             {isEdit ? (
-              <QuestionUpdateForm question={question} setIsEdit={setIsEdit} />
+              <QuestionUpdateForm question={question!} setIsEdit={setIsEdit} />
             ) : (
               <div>
                 <div className={styles["quesiton-item__container__top"]}>
