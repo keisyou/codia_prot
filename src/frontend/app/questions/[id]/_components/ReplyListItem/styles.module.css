@@ -8,6 +8,13 @@
 
 .reply-list-item__top {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reply-list-item__top__info {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
 }
@@ -27,4 +34,34 @@
 .reply-list-item__created-at {
   color: #666;
   font-size: 0.875rem;
+}
+
+.reply-list-item__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.reply-list-item--edit-button {
+  background-color: #f6f8fa;
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.25rem;
+
+  &:hover {
+    background-color: #818b981a;
+  }
+}
+
+.reply-list-item--delete-button {
+  color: #d1242f;
+  background-color: #f6f8fa;
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.25rem;
+
+  &:hover {
+    background-color: #818b981a;
+  }
 }

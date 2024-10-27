@@ -75,7 +75,7 @@ export const CommentListItem = ({
       </div>
 
       <div className={styles["comment-list-item__child"]}>
-        <ReplyList replies={comment.replies} />
+        <ReplyList replies={comment.replies} commentId={comment.id} />
       </div>
 
       <ReplyForm commentId={comment.id} />
