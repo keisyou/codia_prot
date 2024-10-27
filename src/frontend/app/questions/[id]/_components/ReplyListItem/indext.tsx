@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 import type { Reply } from "./type";
 import { useState } from "react";
 import { ReplyUpdateForm } from "./ReplyUpdateForm";
+import { Modal } from "./Modal";
 
 export const ReplyListItem = ({
   reply,
@@ -41,19 +42,19 @@ export const ReplyListItem = ({
               >
                 Edit
               </button>
-              {/* <button
-              className={styles["reply-list-item--delete-button"]}
-              onClick={() => setIsOpen(true)}
-            >
-              Delete
-            </button> */}
+              <button
+                className={styles["reply-list-item--delete-button"]}
+                onClick={() => setIsOpen(true)}
+              >
+                Delete
+              </button>
 
-              {/* <Modal
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
-              commentId={commentId}
-              replyId={reply.id}
-            /> */}
+              <Modal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                commentId={commentId}
+                replyId={reply.id}
+              />
             </div>
           </div>
           <div>{reply.content}</div>
