@@ -5,6 +5,49 @@
 
 ## テーブル定義書
 
+### users
+
+| COLUMN            | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
+| ----------------- | --------- | ------- | ------- | -------- | -------------- |
+| id                | BIGINT    | PRIMARY |         | o        | o              |
+| name              | VARCHAR   |         |         | o        |                |
+| email             | VARCHAR   | UNIQUE  |         | o        |                |
+| icon              | VARCHAR   |         |         |          |                |
+| email_verified_at | TIMESTAMP |         |         |          |                |
+| password          | VARCHAR   |         |         |          |                |
+| remember_token    | VARCHAR   |         |         |          |                |
+| created_at        | TIMESTAMP |         | NOW     | o        |                |
+| updated_at        | TIMESTAMP |         | NOW     | o        |                |
+
+### personal_access_tokens
+
+| COLUMN         | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
+| -------------- | --------- | ------- | ------- | -------- | -------------- |
+| id             | BIGINT    | PRIMARY |         | o        | o              |
+| tokenable_type | VARCHAR   |         |         | o        |                |
+| tokenable_id   | BIGINT    |         |         | o        |                |
+| name           | VARCHAR   |         |         | o        |                |
+| token          | VARCHAR   | UNIQUE  |         | o        |                |
+| abilities      | TEXT      |         |         |          |                |
+| last_used_at   | TIMESTAMP |         |         |          |                |
+| expires_at     | TIMESTAMP |         |         |          |                |
+| created_at     | TIMESTAMP |         | NOW     | o        |                |
+| updated_at     | TIMESTAMP |         | NOW     | o        |                |
+
+### providers
+
+| COLUMN        | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
+| ------------- | --------- | ------- | ------- | -------- | -------------- |
+| id            | BIGINT    | PRIMARY |         | o        | o              |
+| user_id       | BIGINT    | FOREGIN |         | o        |                |
+| provider_name | VARCHAR   |         |         | o        |                |
+| provider_id   | VARCHAR   |         |         | o        |                |
+| access_token  | VARCHAR   |         |         | o        |                |
+| refresh_token | VARCHAR   |         |         |          |                |
+| expires_at    | TIMESTAMP |         |         |          |                |
+| created_at    | TIMESTAMP |         | NOW     | o        |                |
+| updated_at    | TIMESTAMP |         | NOW     | o        |                |
+
 ### questions
 
 | COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
