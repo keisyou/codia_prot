@@ -39,17 +39,4 @@ class StoreCommentRequest extends FormRequest
             'content.required' => 'コメントは必須です',
         ];
     }
-
-    protected function failedValidation(Validator $validator): HttpResponseException
-    {
-        $response = response()->json([
-            'error' => [
-                'code' => 400,
-                'message' => 'Invalid request parameter',
-                'errors' => $validator->errors(),
-            ],
-        ], 400);
-
-        throw new HttpResponseException($response);
-    }
 }
