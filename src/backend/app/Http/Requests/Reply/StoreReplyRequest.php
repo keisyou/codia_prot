@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\Reply;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
 
 class StoreReplyRequest extends FormRequest
 {
@@ -38,18 +36,5 @@ class StoreReplyRequest extends FormRequest
         return [
             'content.required' => '返信内容は必須です',
         ];
-    }
-
-    protected function failedValidation(Validator $validator): HttpResponseException
-    {
-        $response = response()->json([
-            'error' => [
-                'code' => 400,
-                'message' => 'Invalid request parameter',
-                'errors' => $validator->errors(),
-            ],
-        ], 400);
-
-        throw new HttpResponseException($response);
     }
 }

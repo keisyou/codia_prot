@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\Question;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UpdateQuestionRequest extends FormRequest
 {
@@ -42,18 +40,5 @@ class UpdateQuestionRequest extends FormRequest
             'content.required' => '内容が必須です',
             'category_id.required' => 'カテゴリーは必須です',
         ];
-    }
-
-    protected function failedValidation(Validator $validator): HttpResponseException
-    {
-        $response = response()->json([
-            'error' => [
-                'code' => 400,
-                'message' => 'Invalid request parameter',
-                'errors' => $validator->errors(),
-            ],
-        ], 400);
-
-        throw new HttpResponseException($response);
     }
 }

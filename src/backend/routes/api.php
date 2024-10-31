@@ -4,23 +4,21 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ReplyController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-
-// 質問
+// User
+Route::post('/register', [UserController::class, 'register'])->name('register');
+Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/user', [UserController::class, 'user']);
+    Route::delete('/logout', [UserController::class, 'logout'])->name('logout');
+});
+// Question
 Route::apiResource('/questions', QuestionController::class);
-
-// カテゴリー
-Route::get('/categories', [CategoryController::class, 'index']);
-
-// コメント
-Route::apiResource('/{question}/comments', CommentController::class)->only(['index', 'store', 'destroy']);
-Route::patch('/{question}/comments/{comment}', [CommentController::class, 'update']);
-
-// リプライ
-Route::apiResource('/{comment}/replies', ReplyController::class)->only(['store', 'destroy']);
-Route::patch('/{comment}/replies/{reply}', [ReplyController::class, 'update']);
+// Category
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+// Comment
+Route::apiResource('/{question}/comments', CommentController::class)->only(['index', 'store', 'update', 'destroy']);
+// Reply
+Route::apiResource('/{comment}/replies', ReplyController::class)->only(['store', 'update', 'destroy']);

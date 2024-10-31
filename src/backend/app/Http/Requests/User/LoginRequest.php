@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Question;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreQuestionRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,8 @@ class StoreQuestionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required'],
-            'content' => ['required'],
-            'category_id' => ['required'],
+            'email' => ['required'],
+            'password' => ['required'],
         ];
     }
 
@@ -36,9 +35,9 @@ class StoreQuestionRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.required' => 'タイトルが必須です',
-            'content.required' => '内容が必須です',
-            'category_id.required' => 'カテゴリーは必須です',
+            'email.required' => 'メールアドレスは必須です',
+            'email.unique' => 'このメールアドレスは既に登録されています',
+            'password.required' => 'パスワードは必須です',
         ];
     }
 }
