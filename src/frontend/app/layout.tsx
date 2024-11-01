@@ -5,6 +5,12 @@ import "./reset.css";
 import "./globals.css";
 import TanstackQueryProvider from "@/providers/TanstackQueryProvider";
 import { Header } from "@/components/Header";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { getUser } from "@/api/users/getUser";
 
 const geistSans = localFont({
   src: "../public/fonts/GeistVF.woff",
@@ -24,19 +30,28 @@ export const metadata: Metadata = {
     "Codia（コーディア）はプログラミング初学者向けの技術Q&Aサイトです。実現したいことや発生したエラーについての質問や回答など知識の共有を行うことができます。",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: ["user"],
+    queryFn: getUser,
+  });
+
   return (
     <html lang="ja">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <TanstackQueryProvider>
-          <Header />
-          {children}
+          <HydrationBoundary state={dehydrate(queryClient)}>
+            <Header />
+            {children}
+          </HydrationBoundary>
         </TanstackQueryProvider>
       </body>
     </html>
