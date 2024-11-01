@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { FetchApiProps } from "./type";
 
 export default async function fetchApi<T>({
@@ -8,6 +9,8 @@ export default async function fetchApi<T>({
   body,
   ...options
 }: FetchApiProps<T>): Promise<T | undefined> {
+  const token = cookies().get("Bearer")?.value;
+
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/${url}`,
@@ -15,6 +18,7 @@ export default async function fetchApi<T>({
         method: method,
         headers: {
           Accept: "application/json",
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
           ...headerOptions,
         },
