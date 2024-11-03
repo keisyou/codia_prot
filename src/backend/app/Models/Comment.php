@@ -12,6 +12,14 @@ class Comment extends Model
     use HasFactory;
 
     /**
+     * Get the user that owns the comment.
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
      * Get the question that owns the comment.
      */
     public function question(): BelongsTo

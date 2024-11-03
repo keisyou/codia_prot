@@ -7,18 +7,18 @@ use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// User
+// Public Route
 Route::post('/register', [UserController::class, 'register'])->name('register');
 Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::apiResource('/questions', QuestionController::class)->only(['index', 'show']);
+Route::apiResource('/{question}/comments', CommentController::class)->only(['index']);
+
+// Authenticated Route
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/user', [UserController::class, 'user']);
     Route::delete('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::apiResource('/questions', QuestionController::class)->only(['store', 'update', 'destroy']);
+    Route::apiResource('/{question}/comments', CommentController::class)->only(['store', 'update', 'destroy']);
+    Route::apiResource('/{comment}/replies', ReplyController::class)->only(['store', 'update', 'destroy']);
 });
-// Question
-Route::apiResource('/questions', QuestionController::class);
-// Category
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-// Comment
-Route::apiResource('/{question}/comments', CommentController::class)->only(['index', 'store', 'update', 'destroy']);
-// Reply
-Route::apiResource('/{comment}/replies', ReplyController::class)->only(['store', 'update', 'destroy']);
