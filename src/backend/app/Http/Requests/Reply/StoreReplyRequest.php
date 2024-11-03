@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Reply;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreReplyRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreReplyRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::check();
     }
 
     /**
