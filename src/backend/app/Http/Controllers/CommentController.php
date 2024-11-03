@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Comment\DestroyCommentRequest;
 use App\Http\Requests\Comment\StoreCommentRequest;
 use App\Http\Requests\Comment\UpdateCommentRequest;
 use App\Http\Resources\Comment\CommentCollection;
@@ -9,6 +10,7 @@ use App\Http\Resources\Comment\CommentResource;
 use App\Models\Comment;
 use App\Models\Question;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -23,9 +25,9 @@ class CommentController extends Controller
     {
         $validated = $request->validated();
 
-        $comment = $question->comments()->create($validated);
+        $comment = $question->comments()->create([...$validated, 'user_id' => Auth::id()]);
 
-        return response()->json(new CommentResource($comment), 201);
+        return response()->json(new CommentResource($comment), 200);
     }
 
     public function update(UpdateCommentRequest $request, Question $question, Comment $comment): JsonResponse
@@ -37,7 +39,7 @@ class CommentController extends Controller
         return response()->json(new CommentResource($comment), 200);
     }
 
-    public function destroy(Question $question, Comment $comment): JsonResponse
+    public function destroy(DestroyCommentRequest $request, Question $question, Comment $comment): JsonResponse
     {
         $comment->delete();
 
