@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users', 'id')->nullOnDelete();
-            $table->string('title');
+            $table->foreignId('user_id')->nullable()->constrained('users', 'id')->nullOnDelete();
+            $table->string('title', 100);
             $table->text('content');
             $table->boolean('is_resolved')->default(false);
             $table->timestamps();

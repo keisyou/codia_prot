@@ -41,5 +41,5 @@ class Question extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'content', 'is_resolved'];
+    protected $fillable = ['user_id', 'title', 'content', 'is_resolved'];
 }

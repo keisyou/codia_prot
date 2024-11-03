@@ -32,6 +32,22 @@ return Application::configure(basePath: dirname(__DIR__))
             ], 401);
         });
 
+        // Forbidden error
+        $exceptions->render(function (\Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException $e): JsonResponse {
+            return response()->json([
+                'code' => 403,
+                'message' => 'Forbidden',
+            ], 403);
+        });
+
+        // Not Found error
+        $exceptions->render(function (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException $e): JsonResponse {
+            return response()->json([
+                'code' => 404,
+                'message' => 'Not Found',
+            ], 404);
+        });
+
         // Other exception errors
         $exceptions->render(function (\Exception $e): JsonResponse {
             $status = $e instanceof HttpException ? $e->getStatusCode() : 500;

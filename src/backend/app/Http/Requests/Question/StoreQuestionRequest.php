@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Question;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreQuestionRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreQuestionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +23,7 @@ class StoreQuestionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required'],
+            'title' => ['required', 'max:100'],
             'content' => ['required'],
             'category_id' => ['required'],
         ];
@@ -37,6 +38,7 @@ class StoreQuestionRequest extends FormRequest
     {
         return [
             'title.required' => 'タイトルが必須です',
+            'title.max' => 'タイトルは100文字以内で入力してください',
             'content.required' => '内容が必須です',
             'category_id.required' => 'カテゴリーは必須です',
         ];

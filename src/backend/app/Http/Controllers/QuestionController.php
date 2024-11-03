@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Question\DestroyQuestionRequest;
 use App\Http\Requests\Question\StoreQuestionRequest;
 use App\Http\Requests\Question\UpdateQuestionRequest;
 use App\Http\Resources\Question\QuestionCollection;
 use App\Http\Resources\Question\QuestionResource;
 use App\Models\Question;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
@@ -24,13 +26,13 @@ class QuestionController extends Controller
         $validated = $request->validated();
 
         $question = DB::transaction(function () use ($validated) {
-            $question = Question::create($validated);
+            $question = Question::create([...$validated, 'user_id' => Auth::id()]);
             $question->categories()->attach($validated['category_id']);
 
             return Question::with('categories')->find($question->id);
         });
 
-        return response()->json(new QuestionResource($question), 201);
+        return response()->json(new QuestionResource($question), 200);
     }
 
     public function show(Question $question): JsonResponse
@@ -50,7 +52,7 @@ class QuestionController extends Controller
         return response()->json(new QuestionResource($question), 200);
     }
 
-    public function destroy(Question $question): JsonResponse
+    public function destroy(DestroyQuestionRequest $request, Question $question): JsonResponse
     {
         $question->delete();
 
