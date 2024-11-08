@@ -37,6 +37,8 @@ class QuestionController extends Controller
 
     public function show(Question $question): JsonResponse
     {
+        $question->views()->create();
+
         return response()->json(new QuestionResource($question), 200);
     }
 

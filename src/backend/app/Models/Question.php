@@ -37,6 +37,14 @@ class Question extends Model
     }
 
     /**
+     * Get the views for the question.
+     */
+    public function views(): HasMany
+    {
+        return $this->hasMany(View::class);
+    }
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
