@@ -28,6 +28,7 @@ class QuestionResource extends JsonResource
             'content' => $this->content,
             'is_resolved' => $this->is_resolved,
             'categories' => CategoryResource::collection($this->categories),
+            'views' => $this->views()->count(),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
