@@ -19,6 +19,8 @@
 | created_at        | TIMESTAMP |         | NOW     | o        |                |
 | updated_at        | TIMESTAMP |         | NOW     | o        |                |
 
+---
+
 ### personal_access_tokens
 
 | COLUMN         | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
@@ -34,6 +36,8 @@
 | created_at     | TIMESTAMP |         | NOW     | o        |                |
 | updated_at     | TIMESTAMP |         | NOW     | o        |                |
 
+---
+
 ### providers
 
 | COLUMN        | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
@@ -48,6 +52,8 @@
 | created_at    | TIMESTAMP |         | NOW     | o        |                |
 | updated_at    | TIMESTAMP |         | NOW     | o        |                |
 
+---
+
 ### questions
 
 | COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
@@ -56,17 +62,6 @@
 | title       | VARCHAR   |         |         | o        |                |
 | content     | TEXT      |         |         | o        |                |
 | is_resolved | BOOLEAN   |         | FALSE   | o        |                |
-| created_at  | TIMESTAMP |         | NOW     | o        |                |
-| updated_at  | TIMESTAMP |         | NOW     | o        |                |
-
----
-
-### views
-
-| COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
-| ----------- | --------- | ------- | ------- | -------- | -------------- |
-| id          | BIGINT    | PRIMARY |         | o        | o              |
-| question_id | BIGINT    | FOREGIN |         | o        |                |
 | created_at  | TIMESTAMP |         | NOW     | o        |                |
 | updated_at  | TIMESTAMP |         | NOW     | o        |                |
 
@@ -84,18 +79,6 @@
 
 ---
 
-### best_answers
-
-| COLUMN      | TYPE      | KEY             | DEFAULT | NOT NULL | AUTO INCREMENT |
-| ----------- | --------- | --------------- | ------- | -------- | -------------- |
-| id          | BIGINT    | PRIMARY         |         | o        | o              |
-| question_id | BIGINT    | UNIQUE, FOREGIN |         | o        |                |
-| comment_id  | BIGINT    | FOREGIN         |         | o        |                |
-| created_at  | TIMESTAMP |                 | NOW     | o        |                |
-| updated_at  | TIMESTAMP |                 | NOW     | o        |                |
-
----
-
 ### replies
 
 | COLUMN     | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
@@ -105,6 +88,18 @@
 | content    | TEXT      |         |         | o        |                |
 | created_at | TIMESTAMP |         | NOW     | o        |                |
 | updated_at | TIMESTAMP |         | NOW     | o        |                |
+
+---
+
+### best_answers
+
+| COLUMN      | TYPE      | KEY             | DEFAULT | NOT NULL | AUTO INCREMENT |
+| ----------- | --------- | --------------- | ------- | -------- | -------------- |
+| id          | BIGINT    | PRIMARY         |         | o        | o              |
+| comment_id  | BIGINT    | FOREGIN         |         | o        |                |
+| question_id | BIGINT    | UNIQUE, FOREGIN |         | o        |                |
+| created_at  | TIMESTAMP |                 | NOW     | o        |                |
+| updated_at  | TIMESTAMP |                 | NOW     | o        |                |
 
 ---
 
@@ -119,16 +114,39 @@
 
 ---
 
-### questions_categories
+### category_question
 
 | COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
 | ----------- | --------- | ------- | ------- | -------- | -------------- |
-| question_id | BIGINT    | FOREGIN |         | o        |                |
 | category_id | BIGINT    | FOREGIN |         | o        |                |
+| question_id | BIGINT    | FOREGIN |         | o        |                |
 | created_at  | TIMESTAMP |         | NOW     | o        |                |
 | updated_at  | TIMESTAMP |         | NOW     | o        |                |
 
-CONSTRAINT pk_question_category PRIMARY KEY (question_id, category_id)
+CONSTRAINT pk_category_question PRIMARY KEY (category_id, question_id)
+
+---
+
+### likes
+
+| COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
+| ----------- | --------- | ------- | ------- | -------- | -------------- |
+| id          | BIGINT    | PRIMARY |         | o        | o              |
+| question_id | BIGINT    | FOREGIN |         | o        |                |
+| user_id     | BIGINT    | FOREGIN |         | o        |                |
+| created_at  | TIMESTAMP |         | NOW     | o        |                |
+| updated_at  | TIMESTAMP |         | NOW     | o        |                |
+
+---
+
+### views
+
+| COLUMN      | TYPE      | KEY     | DEFAULT | NOT NULL | AUTO INCREMENT |
+| ----------- | --------- | ------- | ------- | -------- | -------------- |
+| id          | BIGINT    | PRIMARY |         | o        | o              |
+| question_id | BIGINT    | FOREGIN |         | o        |                |
+| created_at  | TIMESTAMP |         | NOW     | o        |                |
+| updated_at  | TIMESTAMP |         | NOW     | o        |                |
 
 ## ER 図
 
