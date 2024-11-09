@@ -29,6 +29,14 @@ class Question extends Model
     }
 
     /**
+     * The likes that belong to the question.
+     */
+    public function likes(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'likes', 'question_id', 'user_id')->withTimestamps();
+    }
+
+    /**
      * Get the comments for the question.
      */
     public function comments(): HasMany

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\UserController;
@@ -21,4 +22,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResource('/questions', QuestionController::class)->only(['store', 'update', 'destroy']);
     Route::apiResource('/{question}/comments', CommentController::class)->only(['store', 'update', 'destroy']);
     Route::apiResource('/{comment}/replies', ReplyController::class)->only(['store', 'update', 'destroy']);
+    Route::post('/{question}/likes', [LikeController::class, 'store']);
+    Route::delete('/{question}/likes', [LikeController::class, 'destroy']);
 });
