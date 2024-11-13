@@ -8,13 +8,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class ReplyResource extends JsonResource
 {
     /**
-     * The "data" wrapper that should be applied.
-     *
-     * @var string
-     */
-    public static $wrap = 'reply';
-
-    /**
      * Transform the resource into an array.
      *
      * @return array<string, mixed>
