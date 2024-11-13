@@ -63,4 +63,10 @@ class Question extends Model
         'content',
         'is_resolved',
     ];
+
+    protected $withCount = [
+        'comments',
+        'likes',
+        'views',
+    ];
 }
