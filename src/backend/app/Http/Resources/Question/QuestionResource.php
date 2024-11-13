@@ -9,13 +9,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class QuestionResource extends JsonResource
 {
     /**
-     * The "data" wrapper that should be applied.
-     *
-     * @var string
-     */
-    public static $wrap = 'question';
-
-    /**
      * Transform the resource into an array.
      *
      * @return array<string, mixed>
@@ -28,8 +21,9 @@ class QuestionResource extends JsonResource
             'content' => $this->content,
             'is_resolved' => $this->is_resolved,
             'categories' => CategoryResource::collection($this->categories),
-            'likes' => $this->likes()->count(),
-            'views' => $this->views()->count(),
+            'comments_count' => $this->comments_count,
+            'likes_count' => $this->likes_count,
+            'views_count' => $this->views_count,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
