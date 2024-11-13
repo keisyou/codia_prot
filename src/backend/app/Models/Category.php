@@ -15,7 +15,7 @@ class Category extends Model
      */
     public function questions(): BelongsToMany
     {
-        return $this->belongsToMany(Question::class);
+        return $this->belongsToMany(Question::class, 'category_question', 'category_id', 'question_id');
     }
 
     /**
@@ -30,12 +30,16 @@ class Category extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+    ];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = ['pivot'];
+    protected $hidden = [
+        'pivot',
+    ];
 }

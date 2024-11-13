@@ -25,7 +25,7 @@ class Question extends Model
      */
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'category_question', 'question_id', 'category_id');
     }
 
     /**
@@ -57,5 +57,10 @@ class Question extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'title', 'content', 'is_resolved'];
+    protected $fillable = [
+        'user_id',
+        'title',
+        'content',
+        'is_resolved',
+    ];
 }
