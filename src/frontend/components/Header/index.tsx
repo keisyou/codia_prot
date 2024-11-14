@@ -31,10 +31,12 @@ export const Header = () => {
   return (
     <header>
       <div className={styles.header}>
-        <div className={styles.logo_box}>
-          <Image src="/icon.svg" alt="icon" priority width={48} height={48} />
-          <h1 className="title">Codia</h1>
-        </div>
+        <Link href="/">
+          <div className={styles.logo_box}>
+            <Image src="/icon.svg" alt="icon" priority width={48} height={48} />
+            <h1 className="title">Codia</h1>
+          </div>
+        </Link>
 
         <div className={styles.button_box}>
           {user?.id ? (
