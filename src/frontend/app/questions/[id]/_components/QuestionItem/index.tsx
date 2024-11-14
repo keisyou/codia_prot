@@ -67,7 +67,7 @@ export const QuestionItem = ({ questionId }: { questionId: number }) => {
                   >
                     <FaRegCommentAlt size={16} />
                     <span className={styles["question-item__metric-count"]}>
-                      1
+                      {question?.comments_count}
                     </span>
                     <span>コメント</span>
                   </div>
@@ -77,7 +77,7 @@ export const QuestionItem = ({ questionId }: { questionId: number }) => {
                   >
                     <FaRegHeart size={16} />
                     <span className={styles["question-item__metric-count"]}>
-                      1
+                      {question?.likes_count}
                     </span>
                     <span>いいね</span>
                   </div>
@@ -87,7 +87,7 @@ export const QuestionItem = ({ questionId }: { questionId: number }) => {
                   >
                     <LuEye size={16} />
                     <span className={styles["question-item__metric-count"]}>
-                      1
+                      {question?.views_count}
                     </span>
                     <span>閲覧</span>
                   </div>
@@ -95,7 +95,7 @@ export const QuestionItem = ({ questionId }: { questionId: number }) => {
 
                 <p className={styles["question-item__created-at"]}>
                   <IoMdTime size={20} />
-                  {`2024年01月01日 00:00`}
+                  {question?.created_at}
                 </p>
               </div>
             </div>
