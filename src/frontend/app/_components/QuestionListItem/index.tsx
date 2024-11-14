@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import type { Question } from "./type";
+import type { Question } from "@/types/question";
 import { FaRegCommentAlt, FaRegHeart } from "react-icons/fa";
 import { LuEye } from "react-icons/lu";
 
@@ -22,7 +22,9 @@ export const QuestionListItem = ({ question }: { question: Question }) => {
         </div>
       </div>
 
-      <h2 className={styles["question-item__title"]}>{question.title}</h2>
+      <div>
+        <h2 className={styles["question-item__title"]}>{question.title}</h2>
+      </div>
 
       <div className={styles["question-item__bottom"]}>
         <div className={styles["question-item__category"]}>
@@ -42,21 +44,27 @@ export const QuestionListItem = ({ question }: { question: Question }) => {
             aria-label="コメント数"
           >
             <FaRegCommentAlt />
-            <span className={styles["question-item__metric-count"]}>1</span>
+            <span className={styles["question-item__metric-count"]}>
+              {question.comments_count}
+            </span>
           </div>
           <div
             className={`${styles["question-item__metric"]} ${styles["question-item__metric--likes"]}`}
             aria-label="いいね数"
           >
             <FaRegHeart />
-            <span className={styles["question-item__metric-count"]}>1</span>
+            <span className={styles["question-item__metric-count"]}>
+              {question.likes_count}
+            </span>
           </div>
           <div
             className={`${styles["question-item__metric"]} ${styles["question-item__metric--views"]}`}
             aria-label="閲覧数"
           >
             <LuEye />
-            <span className={styles["question-item__metric-count"]}>1</span>
+            <span className={styles["question-item__metric-count"]}>
+              {question.views_count}
+            </span>
           </div>
         </div>
       </div>
