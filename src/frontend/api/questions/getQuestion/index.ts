@@ -1,7 +1,7 @@
 "use server";
 
-import type { Question } from "./type";
 import fetchApi from "@/api/libs/fetch";
+import type { Question } from "@/types/question";
 
 export async function getQuestion({
   id,

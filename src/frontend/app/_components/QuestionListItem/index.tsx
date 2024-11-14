@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import type { Question } from "./type";
+import type { Question } from "@/types/question";
 import { FaRegCommentAlt, FaRegHeart } from "react-icons/fa";
 import { LuEye } from "react-icons/lu";
 
