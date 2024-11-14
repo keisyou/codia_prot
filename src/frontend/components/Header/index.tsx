@@ -40,15 +40,21 @@ export const Header = () => {
 
         <div className={styles.button_box}>
           {user?.id ? (
-            <form action={formAction}>
-              <Button size="small" type="submit" label="ログアウト" />
-            </form>
+            <>
+              <Link className={styles["primary_link"]} href="/questions/create">
+                質問する
+              </Link>
+
+              <form action={formAction}>
+                <Button size="small" type="submit" label="ログアウト" />
+              </form>
+            </>
           ) : (
             <>
-              <Link className={styles["login_link"]} href="/login">
+              <Link className={styles["primary_link"]} href="/login">
                 ログイン
               </Link>
-              <Link className={styles["signup_link"]} href="/signup">
+              <Link className={styles["secondary_link"]} href="/signup">
                 新規登録
               </Link>
             </>

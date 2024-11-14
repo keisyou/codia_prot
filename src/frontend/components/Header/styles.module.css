@@ -22,7 +22,7 @@
   gap: 1rem;
 }
 
-.login_link {
+.primary_link {
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -40,7 +40,7 @@
   }
 }
 
-.signup_link {
+.secondary_link {
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
