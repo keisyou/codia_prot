@@ -1,9 +1,9 @@
 {
   "version": 2,
   "framework": "nextjs",
-  "buildCommand": "cd frontend && npm install && npm run build",
-  "outputDirectory": "frontend/.next",
-  "installCommand": "cd frontend && npm install",
+  "buildCommand": "cd src/frontend && npm install && npm run build",
+  "outputDirectory": "src/frontend/.next",
+  "installCommand": "cd src/frontend && npm install",
   "rewrites": [
     {
       "source": "/api/:path*",
@@ -12,8 +12,8 @@
   ],
   "git": {
     "deploymentEnabled": {
-      "frontend": true,
-      "api": false
+      "src/frontend/**": true,
+      "src/backend/**": false
     }
   }
 }
