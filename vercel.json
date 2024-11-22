@@ -1,14 +1,19 @@
 {
   "version": 2,
-  "buildCommand": "cd src/frontend && npm install && npm run build",
-  "outputDirectory": "src/frontend/.next",
-  "ignoreCommand": "git diff HEAD^ HEAD --quiet .src/frontend",
-  "installCommand": "cd src/frontend && npm install",
   "framework": "nextjs",
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/.next",
+  "installCommand": "cd frontend && npm install",
   "rewrites": [
     {
       "source": "/api/:path*",
       "destination": "https://your-laravel-api.com/api/:path*"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "frontend": true,
+      "api": false
+    }
+  }
 }
