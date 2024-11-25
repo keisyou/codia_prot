@@ -1,9 +1,0 @@
-{
-  "outputDirectory": "src/frontend/.next",
-  "builds": [
-    {
-      "src": "src/frontend/package.json",
-      "use": "@vercel/next"
-    }
-  ]
-}
