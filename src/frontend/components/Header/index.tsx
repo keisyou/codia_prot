@@ -7,8 +7,8 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "../Button";
 import { useFormState } from "react-dom";
-import { logout } from "@/api/users/logout/actions";
-import { initialState } from "@/api/users/logout/state";
+import { logout } from "@/api/users/actions";
+import { initialState } from "@/api/users/state";
 
 type User = {
   name: string;
