@@ -5,5 +5,8 @@
     "prettier",
     "plugin:storybook/recommended",
     "plugin:@tanstack/query/recommended"
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "warn"
+  }
 }
