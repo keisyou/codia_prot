@@ -2,9 +2,9 @@ import styles from "./styles.module.css";
 import type { Question } from "./type";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useFormState } from "react-dom";
-import { updateQuestion } from "@/api/questions/updateQuestion/actions";
-import { initialState } from "@/api/questions/updateQuestion/state";
 import { Button } from "./Button";
+import { updateQuestion } from "@/api/questions/actions";
+import { initialState } from "@/api/questions/state";
 
 export const QuestionUpdateForm = ({
   question,
