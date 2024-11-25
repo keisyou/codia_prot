@@ -2,7 +2,7 @@
 
 import styles from "./styles.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { getComments } from "@/api/comments/getComments";
+import { getComments } from "@/apis/comments/getComments";
 import { CommentListItem } from "../CommentListItem";
 
 export const CommentList = ({ questionId }: { questionId: number }) => {

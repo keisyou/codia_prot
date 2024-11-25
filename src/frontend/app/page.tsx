@@ -4,7 +4,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { QuestionList } from "./_components/QuestionList";
-import { getQuestions } from "@/api/questions/getQuestions";
+import { getQuestions } from "@/apis/questions/getQuestions";
 
 export default async function Top() {
   const queryClient = new QueryClient();

@@ -3,8 +3,8 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { getQuestion } from "@/api/questions/getQuestion";
-import { getComments } from "@/api/comments/getComments";
+import { getQuestion } from "@/apis/questions/getQuestion";
+import { getComments } from "@/apis/comments/getComments";
 import { QuestionItem } from "./_components/QuestionItem";
 import { CommentList } from "./_components/CommentList";
 import { CommentForm } from "./_components/CommentForm";

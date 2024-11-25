@@ -3,8 +3,8 @@
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { useFormState } from "react-dom";
-import { login } from "@/api/users/actions";
-import { initialState } from "@/api/users/state";
+import { login } from "@/apis/users/actions";
+import { initialState } from "@/apis/users/state";
 
 export const Form = () => {
   const [state, formAction] = useFormState(login, initialState);
