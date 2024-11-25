@@ -17,7 +17,8 @@ export async function login(
       throw new Error("Missing required fields");
     }
 
-    const response = await fetchApi({
+    // anyは修正必須
+    const response: any = await fetchApi({
       method: "POST",
       url: "login",
       body: {

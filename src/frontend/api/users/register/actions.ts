@@ -23,7 +23,7 @@ export async function register(
       throw new Error("password and confirmPassword different");
     }
 
-    const response = await fetchApi({
+    const response: any = await fetchApi({
       method: "POST",
       url: "register",
       body: {
