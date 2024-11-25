@@ -1,14 +1,14 @@
 "use client";
 
-import { getUser } from "@/api/users/getUser";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "../Button";
 import { useFormState } from "react-dom";
-import { logout } from "@/api/users/actions";
-import { initialState } from "@/api/users/state";
+import { getUser } from "@/apis/users/getUser";
+import { logout } from "@/apis/users/actions";
+import { initialState } from "@/apis/users/state";
 
 type User = {
   name: string;

@@ -1,7 +1,7 @@
 "use server";
 
 import type { Question } from "./type";
-import fetchApi from "@/api/libs/fetch";
+import fetchApi from "@/apis/libs/fetch";
 
 export async function getQuestions(): Promise<Question[] | undefined> {
   const questions = await fetchApi<Question[]>({

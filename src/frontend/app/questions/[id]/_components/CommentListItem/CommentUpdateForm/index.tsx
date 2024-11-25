@@ -3,8 +3,8 @@ import { Comment } from "./type";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { Button } from "./Button";
-import { updateComment } from "@/api/comments/actions";
-import { initialState } from "@/api/comments/state";
+import { updateComment } from "@/apis/comments/actions";
+import { initialState } from "@/apis/comments/state";
 
 export const CommentUpdateForm = ({
   questionId,

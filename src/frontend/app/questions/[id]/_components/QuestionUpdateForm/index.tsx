@@ -3,8 +3,8 @@ import type { Question } from "./type";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { Button } from "./Button";
-import { updateQuestion } from "@/api/questions/actions";
-import { initialState } from "@/api/questions/state";
+import { updateQuestion } from "@/apis/questions/actions";
+import { initialState } from "@/apis/questions/state";
 
 export const QuestionUpdateForm = ({
   question,

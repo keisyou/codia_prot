@@ -1,7 +1,7 @@
 "use server";
 
 import type { Comment } from "./type";
-import fetchApi from "@/api/libs/fetch";
+import fetchApi from "@/apis/libs/fetch";
 
 export async function getComments({
   id,

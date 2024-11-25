@@ -1,6 +1,6 @@
 "use server";
 
-import fetchApi from "@/api/libs/fetch";
+import fetchApi from "@/apis/libs/fetch";
 import type { User } from "./type";
 
 export async function getUser(): Promise<User | undefined> {

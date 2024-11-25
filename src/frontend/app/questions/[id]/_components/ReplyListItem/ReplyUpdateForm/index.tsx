@@ -3,8 +3,8 @@ import type { Reply } from "./type";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { Button } from "./Button";
-import { updateReply } from "@/api/replies/actions";
-import { initialState } from "@/api/replies/state";
+import { updateReply } from "@/apis/replies/actions";
+import { initialState } from "@/apis/replies/state";
 
 export const ReplyUpdateForm = ({
   commentId,

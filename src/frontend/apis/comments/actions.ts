@@ -1,6 +1,6 @@
 "use server";
 
-import fetchApi from "@/api/libs/fetch";
+import fetchApi from "@/apis/libs/fetch";
 import { State } from "./state";
 import { revalidateTag } from "next/cache";
 
