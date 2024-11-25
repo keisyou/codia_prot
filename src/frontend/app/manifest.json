@@ -1,0 +1,21 @@
+{
+  "name": "Codia",
+  "short_name": "Codia",
+  "description": "Codia（コーディア）はプログラミング初学者向けの技術Q&Aサイトです。実現したいことや発生したエラーについての質問や回答など知識の共有を行うことができます。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

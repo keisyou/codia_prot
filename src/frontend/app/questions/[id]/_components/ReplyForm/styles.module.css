@@ -1,0 +1,31 @@
+.wrapper {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.reply-form {
+  padding: 1rem;
+  background-color: #f6f8fa;
+}
+
+.reply-form__container {
+  border: solid 1px #d9d9d9;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  background-color: #ffffff;
+}
+
+.reply-form__button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.reply-form__textarea {
+  border: solid 1px #d9d9d9;
+  border-radius: 0.25rem;
+  width: 100%;
+  padding: 0.5rem;
+}

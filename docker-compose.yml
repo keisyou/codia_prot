@@ -1,0 +1,53 @@
+services:
+  client:
+    build:
+      context: ./docker/client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+      - 6006:6006
+    volumes:
+      - ./src/frontend:/app
+    depends_on:
+      - app
+    networks:
+      - codia-network
+
+  app:
+    image: 533267002750.dkr.ecr.ap-northeast-1.amazonaws.com/codia/app:latest
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    ports:
+      - 8000:80
+    volumes:
+      - ./docker/apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./docker/app/php.ini:/usr/local/etc/php/php.ini
+      - ./src/backend:/var/www/html/
+    depends_on:
+      - db
+    networks:
+      - codia-network
+
+  db:
+    build:
+      context: ./docker/db
+      dockerfile: Dockerfile
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: codia
+    volumes:
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - codia_db:/var/lib/mysql
+    networks:
+      - codia-network
+
+volumes:
+  codia_db:
+
+networks:
+  codia-network:
+    driver: bridge

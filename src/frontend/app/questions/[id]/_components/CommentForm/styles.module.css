@@ -1,0 +1,28 @@
+.wrapper {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.comment-form {
+}
+
+.comment-form__container {
+  border: solid 1px #d9d9d9;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+.comment-form__button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.comment-form__textarea {
+  border: solid 1px #d9d9d9;
+  border-radius: 0.25rem;
+  width: 100%;
+  padding: 0.5rem;
+}

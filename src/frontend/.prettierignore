@@ -1,0 +1,11 @@
+.storybook
+node_modules
+manifest.json
+.prettierrc
+.eslintrc.json
+package.json
+package-lock.json
+next.config.mjs
+postcss.config.mjs
+tsconfig.json
+*.md

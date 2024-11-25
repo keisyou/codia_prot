@@ -1,0 +1,140 @@
+.wrapper {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.question-item {
+  display: grid;
+  gap: 1rem;
+}
+
+.question-item__header {
+  background-color: #ecf5ff;
+  border-bottom: solid 1px #d9d9d9;
+}
+
+.question-item__header__inner {
+  display: grid;
+  gap: 1rem;
+}
+
+.question-item__header__inner__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.question-item__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.question-item__actions__delete {
+  padding: 0.375rem 0.625rem;
+  border: solid 1px #d9d9d9;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  color: #d1242f;
+  background-color: #f6f8fa;
+
+  &:hover {
+    background-color: #e6eaef;
+  }
+}
+
+.question-item__category {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.question-item__category-item {
+  padding: 0.25rem 0.5rem;
+  border: solid 1px #d9d9d9;
+  border-radius: 0.25rem;
+  background-color: #ffffff;
+  font-size: 0.875rem;
+}
+
+.question-item__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question-item__metrics-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.question-item__metric {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.question-item__user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.question-item__user-image {
+  width: 2rem;
+  height: 2rem;
+  background-color: aqua;
+  border-radius: 50%;
+}
+
+.question-item__username {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.question-item__created-at {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.question-item__main {
+}
+
+.question-item__container {
+  border: solid 1px #d9d9d9;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+.quesiton-item__container__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.question-item__container--title {
+}
+
+.question-item__container--edit-button {
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.25rem;
+
+  &:hover {
+    background-color: #818b981a;
+  }
+}
