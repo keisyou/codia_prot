@@ -10,7 +10,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { getUser } from "@/api/users/getUser";
+import { getUser } from "@/apis/users/getUser";
 
 const geistSans = localFont({
   src: "../public/fonts/GeistVF.woff",

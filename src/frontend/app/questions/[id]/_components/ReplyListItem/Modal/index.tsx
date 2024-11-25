@@ -2,8 +2,8 @@ import styles from "./styles.module.css";
 import { Dispatch, SetStateAction } from "react";
 import { useFormState } from "react-dom";
 import { IoClose } from "react-icons/io5";
-import { deleteReply } from "@/api/replies/deleteReply/actions";
-import { initialState } from "@/api/questions/deleteQuestion/state";
+import { deleteReply } from "@/apis/replies/actions";
+import { initialState } from "@/apis/replies/state";
 
 export const Modal = ({
   isOpen,

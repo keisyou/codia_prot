@@ -3,9 +3,9 @@
 import styles from "./styles.module.css";
 import { useRef } from "react";
 import { useFormState } from "react-dom";
-import { createReply } from "@/api/replies/postReply/actions";
-import { initialState } from "@/api/replies/postReply/state";
 import { Button } from "@/components/Button";
+import { createReply } from "@/apis/replies/actions";
+import { initialState } from "@/apis/replies/state";
 
 export const ReplyForm = ({ commentId }: { commentId: number }) => {
   const formRef = useRef<HTMLFormElement>(null);

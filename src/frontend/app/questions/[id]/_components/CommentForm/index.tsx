@@ -3,9 +3,9 @@
 import styles from "./styles.module.css";
 import { useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
-import { createComment } from "@/api/comments/postComment/actions";
-import { initialState } from "@/api/comments/postComment/state";
 import { Button } from "@/components/Button";
+import { createComment } from "@/apis/comments/actions";
+import { initialState } from "@/apis/comments/state";
 
 export const CommentForm = ({ questionId }: { questionId: number }) => {
   const formRef = useRef<HTMLFormElement>(null);

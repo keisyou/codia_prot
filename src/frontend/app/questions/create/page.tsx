@@ -5,7 +5,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { CreateForm } from "./_component/CreateForm";
-import { getCategories } from "@/api/categories/getCategories";
+import { getCategories } from "@/apis/categories/getCategories";
 
 export default async function Create() {
   const queryClient = new QueryClient();

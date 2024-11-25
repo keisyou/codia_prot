@@ -2,9 +2,9 @@ import styles from "./styles.module.css";
 import type { Reply } from "./type";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useFormState } from "react-dom";
-import { updateReply } from "@/api/replies/updateReply/actions";
-import { initialState } from "@/api/replies/updateReply/state";
 import { Button } from "./Button";
+import { updateReply } from "@/apis/replies/actions";
+import { initialState } from "@/apis/replies/state";
 
 export const ReplyUpdateForm = ({
   commentId,

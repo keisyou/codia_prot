@@ -3,10 +3,10 @@
 import styles from "./styles.module.css";
 import { useFormState } from "react-dom";
 import { useQuery } from "@tanstack/react-query";
-import { createQuestion } from "@/api/questions/postQuestion/actions";
-import { initialState } from "@/api/questions/postQuestion/state";
-import { getCategories } from "@/api/categories/getCategories";
+import { getCategories } from "@/apis/categories/getCategories";
 import { Button } from "@/components/Button";
+import { createQuestion } from "@/apis/questions/actions";
+import { initialState } from "@/apis/questions/state";
 
 export const CreateForm = () => {
   const { data: categories = [] } = useQuery({
