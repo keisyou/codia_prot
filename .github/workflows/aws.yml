@@ -49,7 +49,7 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker tag codia/app:latest 533267002750.dkr.ecr.ap-northeast-1.amazonaws.com/codia/app:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker tag codia/app:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
