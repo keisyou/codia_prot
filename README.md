@@ -1,5 +1,6 @@
 # Codia
 [コミュニティ向け技術Q&Aサイト Codia](https://www.codia.site) 
+※ 現在は、サイトの運用を停止しております。
 
 ## 概要
 
@@ -85,9 +86,3 @@ AWS (バックエンド)
 
 ## インフラ構成図
 ![Codia](https://github.com/user-attachments/assets/8f3cac54-b1ce-433e-90ca-9dce80722239)
-
-## 画面遷移図
-
-## 機能一覧
-
-## 今後の展望
